@@ -18,8 +18,17 @@ func calculateDrinks(n: Int, m: Int) -> (Int, Int, [String]) {
     return (totalDrinks, iterations, steps)
 }
 
-let n = 15
-let m = 4
+// Get user input for n
+print("Enter the number of full cans:")
+guard let inputN = readLine(), let n = Int(inputN) else {
+    fatalError("Invalid input for the number of full cans")
+}
+
+// Get user input for m
+print("Enter the number of empty cans needed for exchange:")
+guard let inputM = readLine(), let m = Int(inputM) else {
+    fatalError("Invalid input for the number of empty cans needed for exchange")
+}
 
 let result = calculateDrinks(n: n, m: m)
 let totalDrinks = result.0

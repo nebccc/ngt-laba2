@@ -1,3 +1,5 @@
+use std::io;
+
 fn calculate_drinks(n: i32, m: i32) -> (i32, i32, Vec<String>) {
     let mut total_drinks = n;
     let mut iterations = 0;
@@ -19,8 +21,15 @@ fn calculate_drinks(n: i32, m: i32) -> (i32, i32, Vec<String>) {
 }
 
 fn main() {
-    let n = 15;
-    let m = 4;
+    println!("Enter the number of full cans:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let n: i32 = input.trim().parse().expect("Please enter a valid number");
+
+    println!("Enter the number of empty cans needed for exchange:");
+    input.clear();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let m: i32 = input.trim().parse().expect("Please enter a valid number");
 
     let (total_drinks, iterations, steps) = calculate_drinks(n, m);
     println!("Maximum number of cans drunk: {}", total_drinks);

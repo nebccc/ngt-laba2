@@ -22,8 +22,11 @@ fun calculateDrinks(n: Int, m: Int): Triple<Int, Int, List<String>> {
 }
 
 fun main() {
-    val n = 15
-    val m = 4
+    print("Enter the number of full cans: ")
+    val n = readLine()!!.toInt()
+
+    print("Enter the number of empty cans needed for exchange: ")
+    val m = readLine()!!.toInt()
 
     val (totalDrinks, iterations, steps) = calculateDrinks(n, m)
     println("Maximum number of cans drunk: $totalDrinks")

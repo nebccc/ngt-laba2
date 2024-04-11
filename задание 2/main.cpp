@@ -32,8 +32,11 @@ tuple<int, int, vector<string>> calculate_drinks(int n, int m) {
 }
 
 int main() {
-    int n = 15; // Количество полных банок
-    int m = 4;  // Количество пустых банок для обмена на одну полную
+    int n, m;
+    cout << "Enter the number of full cans: ";
+    cin >> n;
+    cout << "Enter the number of empty cans needed for exchange: ";
+    cin >> m;
 
     auto result = calculate_drinks(n, m);
     int total_drinks = get<0>(result);

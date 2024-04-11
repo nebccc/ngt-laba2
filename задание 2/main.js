@@ -19,10 +19,18 @@ function calculateDrinks(n, m) {
     return { totalDrinks, iterations, steps };
 }
 
-const n = 15;
-const m = 4;
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const { totalDrinks, iterations, steps } = calculateDrinks(n, m);
-console.log(`Maximum number of cans drunk: ${totalDrinks}`);
-console.log(`Number of iterations: ${iterations}`);
-steps.forEach(step => console.log(step));
+rl.question('Enter the number of full cans: ', (n) => {
+  rl.question('Enter the number of empty cans needed for exchange: ', (m) => {
+    const { totalDrinks, iterations, steps } = calculateDrinks(parseInt(n), parseInt(m));
+    console.log(`Maximum number of cans drunk: ${totalDrinks}`);
+    console.log(`Number of iterations: ${iterations}`);
+    steps.forEach(step => console.log(step));
+    rl.close();
+  });
+});

@@ -32,8 +32,13 @@ func calculateDrinks(n, m int) (int, int, []string) {
 }
 
 func main() {
-	n := 15 // Количество полных банок
-	m := 4  // Количество пустых банок для обмена на одну полную
+	var n, m int
+
+	fmt.Print("Enter the number of full cans: ")
+	fmt.Scanln(&n)
+
+	fmt.Print("Enter the number of empty cans needed for exchange: ")
+	fmt.Scanln(&m)
 
 	totalDrinks, iterations, steps := calculateDrinks(n, m)
 
