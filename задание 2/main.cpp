@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <tuple>
+#include <limits>
 
 using namespace std;
 
@@ -33,10 +35,24 @@ tuple<int, int, vector<string>> calculate_drinks(int n, int m) {
 
 int main() {
     int n, m;
-    cout << "Enter the number of full cans: ";
-    cin >> n;
-    cout << "Enter the number of empty cans needed for exchange: ";
-    cin >> m;
+
+    do {
+        if (cin.fail()) {
+            cin.clear(); // Reset the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+        }
+        cout << "Enter the number of full cans: ";
+        cin >> n;
+    } while (cin.fail());
+
+    do {
+        if (cin.fail()) {
+            cin.clear(); // Reset the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+        }
+        cout << "Enter the number of empty cans needed for exchange: ";
+        cin >> m;
+    } while (cin.fail());
 
     auto result = calculate_drinks(n, m);
     int total_drinks = get<0>(result);
